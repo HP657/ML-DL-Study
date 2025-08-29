@@ -1,0 +1,20 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Jupyter Docker",
+            "type": "shell",
+            "command": "docker build -t py311-jupyter .",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Jupyter Docker",
+            "type": "shell",
+            "command": "docker run -it --rm -p 8888:8888 -v ${workspaceFolder}:/app py311-jupyter",
+            "dependsOn": "Build Jupyter Docker",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
